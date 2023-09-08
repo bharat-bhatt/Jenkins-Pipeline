@@ -4,70 +4,63 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Stage 1: Building the code using Maven or another build automation tool"
-                // Add actual build steps here
+                echo "Step 1: Building the application using Maven or another build automation tool"
             }
         }
         
         stage('Unit and Integration Tests') {
             steps {
-                echo "Stage 2: Running unit and integration tests"
-                // Add actual test automation tool commands here
+                echo "Step 2: Running unit and integration tests"
             }
         }
 
         stage('Code Analysis') {
             steps {
-                echo "Stage 3: Analyzing the code using a code analysis tool (e.g., SonarQube)"
-                // Add actual code analysis tool commands here
+                echo "Step 3: Analyzing the code using a code analysis tool like SonarQube"
             }
         }
 
         stage('Security Scan') {
             steps {
-                echo "Stage 4: Performing a security scan using a security analysis tool (e.g., OWASP ZAP)"
-                // Add actual security scan tool commands here
+                echo "Step 4: Performing a security scan using a security analysis tool such as OWASP ZAP"
             }
         }
 
         stage('Deploy to Staging') {
             steps {
-                echo "Stage 5: Deploying the application to a staging server (e.g., AWS EC2)"
-                // Add actual deployment steps here
+                echo "Step 5: Deploying the application to a staging server, for example, AWS EC2"
             }
         }
 
         stage('Integration Tests on Staging') {
             steps {
-                echo "Stage 6: Running integration tests on the staging environment"
-                // Add actual integration test commands here
+                echo "Step 6: Running integration tests on the staging environment"
             }
         }
 
         stage('Deploy to Production') {
             steps {
-                echo "Stage 7: Deploying the application to a production server (e.g., AWS EC2)"
-                // Add actual deployment steps here
+                echo "Step 7: Deploying the application to a production server, such as AWS EC2"
             }
         }
     }
 
     post {
         success {
-            echo "Pipeline succeeded!"
+            echo "Pipeline completed successfully!"
             emailext(
                 to: "bharatbhatt232@gmail.com",
                 subject: "Pipeline Status: Success",
-                body: "The Jenkins pipeline has completed successfully.",
+                body: "The Jenkins pipeline has successfully finished.",
                 attachLog: true
             )
         }
         failure {
-            echo "Pipeline failed!"
+            echo "Pipeline encountered a failure!"
             emailext(
                 to: "bharatbhatt232@gmail.com",
                 subject: "Pipeline Status: Failure",
-                body: "The Jenkins pipeline has failed. Please check the logs for details.",
+                body: "The Jenkins pipeline has experienced an issue. Please check the logs for details.",
                 attachLog: true
             )
         }

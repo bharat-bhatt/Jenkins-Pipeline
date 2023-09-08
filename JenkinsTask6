@@ -22,7 +22,7 @@ pipeline {
 
         stage('Security Scan') {
             steps {
-                echo "Step 4: Performing a security scan using a security analysis tool such as OWASP ZAP"
+                echo "Step 4: Performing a security scan using a security analysis tool such as OWASP ZA"
             }
         }
 
